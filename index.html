@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        #output {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <div id="output"></div>
+    
+    <script>
+        document.getElementById('numberInput').addEventListener('input', function() {
+            let num = parseInt(this.value);
+            let output = document.getElementById('output');
+            
+            if (isNaN(num)) {
+                output.textContent = "";
+                return;
+            }
+            
+            if (num < 0) {
+                output.textContent = "Enter a positive value";
+                return;
+            }
+            
+            let result = "Next 3 numbers: ";
+            if (num % 2 === 0) {
+                result += `${num + 2}, ${num + 4}, ${num + 6}`;
+            } else {
+                result += `${num + 2}, ${num + 4}, ${num + 6}`;
+            }
+            
+            output.textContent = result;
+        });
+    </script>
+</body>
+</html>
